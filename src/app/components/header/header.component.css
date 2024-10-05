@@ -1,0 +1,57 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #007bff;
+  height: 80px;
+}
+
+header>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#logo {
+  padding: 0.5rem;
+  background-color: #ddd;
+  border-radius: 50%;
+  font-size: 2rem;
+}
+
+header>nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+header>nav>a {
+  color: black;
+  transition: all 0.1s ease-in-out;
+  font-size: 1rem;
+  color: #ddd;
+  padding: 0.5rem 1rem;
+}
+
+header>nav>a:hover {
+  color: white;
+}
+
+@media (max-width: 405px) {
+  :host {
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  #lista-compras {
+    display: none;
+  }
+}

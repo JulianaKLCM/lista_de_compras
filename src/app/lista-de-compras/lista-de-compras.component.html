@@ -1,0 +1,33 @@
+<div *ngIf="showForm">
+  <app-form-inclusao (closeForm)="toggleForm()" (addItem)="onAddItem($event)">
+  </app-form-inclusao>
+</div>
+
+<div *ngIf="!showForm" class="lista">
+  <div id="lista-titulo">
+    <h2>Lista de Compras</h2>
+    <button id="add-item" (click)="toggleForm()">Adicionar</button>
+  </div>
+
+  <div *ngIf="items && items.length > 0; else emptyList" class="cards">
+    <div class="card" *ngFor="let item of items" (click)="toggleItemStatus(item)" [ngClass]="{
+        'comprado': item.status === 'comprado', 'pendente': item.status === 'pendente',
+        'border-comprado': item.status === 'comprado',
+        'border-pendente': item.status === 'pendente',
+        'border-default': item.status !== 'comprado' && item.status !== 'pendente'
+      }">
+      <div id="card-content">
+        <h4>{{ item.descricao }}</h4>
+        <p><span>Qtde:</span> {{ item.quantidade }}</p>
+        <p *ngIf="item.obs"><span>Obs:</span> {{ item.obs }}</p>
+      </div>
+      <div>
+        <button class="botoes" id="delete-item" (click)="deleteItem(item, $event)">🗑️</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #emptyList>
+    <p id="aviso-vazio">A lista de compras está vazia</p>
+  </ng-template>
+</div>

@@ -1,0 +1,17 @@
+<h2>Adicionar Item</h2>
+
+<form (ngSubmit)="onSubmit()" class="form">
+  <label for="descricao">Descrição:</label>
+  <input type="text" id="descricao" [(ngModel)]="descricao" name="descricao" required>
+
+  <label for="quantidade">Quantidade:</label>
+  <input type="number" id="quantidade" [(ngModel)]="quantidade" name="quantidade" required>
+
+  <label for="obs">Observação:</label>
+  <input type="text" id="obs" [(ngModel)]="obs" name="obs" placeholder="Adicione uma observação caso necessário">
+
+  <div class="botoes-form">
+    <button type="submit" id="adicionar">Adicionar Item</button>
+    <button type="button" (click)="onCancel()" id="cancelar">Cancelar</button>
+  </div>
+</form>
