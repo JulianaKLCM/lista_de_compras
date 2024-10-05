@@ -47,7 +47,6 @@ header>nav>a:hover {
 
 @media (max-width: 405px) {
   :host {
-    width: 100vw;
     overflow: hidden;
   }
 

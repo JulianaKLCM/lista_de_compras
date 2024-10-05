@@ -119,4 +119,23 @@
   color: #777;
 }
 
-@media (max-width: 768px) {}
+@media (max-width: 515px) {
+  #lista-titulo {
+    padding: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  #lista-titulo>button {
+    font-size: 0.7rem;
+  }
+
+  #lista-titulo>h2 {
+    font-size: 0.9rem;
+  }
+
+  #aviso-vazio {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
+}

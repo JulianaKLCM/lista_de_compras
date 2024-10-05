@@ -43,3 +43,24 @@ input {
   color: white;
   margin-left: 0.5rem;
 }
+
+@media (max-width: 410px) {
+
+  label,
+  h2,
+  input {
+    font-size: 0.8rem;
+  }
+
+  .botoes-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    gap: 0.8rem;
+  }
+
+  #cancelar {
+    margin-left: 0;
+  }
+}
