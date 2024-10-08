@@ -2,11 +2,25 @@ import { Component } from '@angular/core';
 import { Item } from '../../data/Item';
 import { CommonModule } from '@angular/common';
 import { FormInclusaoComponent } from './form-inclusao/form-inclusao.component';
+import { FormEdicaoComponent } from './form-edicao/form-edicao.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faPencilAlt,
+  faTrash,
+  faPlus,
+} from '@fortawesome/free-solid-svg-icons';
+import { CardComponent } from '../components/card/card.component';
 
 @Component({
   selector: 'app-lista-de-compras',
   standalone: true,
-  imports: [CommonModule, FormInclusaoComponent],
+  imports: [
+    CommonModule,
+    FormInclusaoComponent,
+    FormEdicaoComponent,
+    FontAwesomeModule,
+    CardComponent,
+  ],
   templateUrl: './lista-de-compras.component.html',
   styleUrls: ['./lista-de-compras.component.css'],
 })
@@ -14,9 +28,15 @@ export class ListaDeComprasComponent {
   items: Item[] = [];
 
   showForm = false;
+  isEditing = false;
+  currentItem: Item | null = null;
 
   toggleForm() {
     this.showForm = !this.showForm;
+    if (this.showForm) {
+      this.isEditing = false;
+      this.currentItem = null;
+    }
   }
 
   onAddItem(item: { descricao: string; quantidade: number; obs?: string }) {
@@ -42,15 +62,31 @@ export class ListaDeComprasComponent {
     );
   }
 
-  deleteItem(item: Item, event: Event) {
-    event.stopPropagation();
+  deleteItem(item: Item) {
+    this.items = this.items.filter((i) => i.id !== item.id);
+  }
 
-    const confirmDelete = window.confirm(
-      `Deseja realmente excluir o item: "${item.descricao}"?`
-    );
+  faPencilAlt = faPencilAlt;
+  faTrash = faTrash;
+  faPlus = faPlus;
 
-    if (confirmDelete) {
-      this.items = this.items.filter((i) => i.id !== item.id);
+  editItem(item: Item) {
+    this.currentItem = { ...item };
+    this.isEditing = true;
+    this.showForm = true;
+  }
+
+  cancelEdit() {
+    this.isEditing = false;
+    this.currentItem = null;
+    this.showForm = false;
+  }
+
+  onUpdateItem(updatedItem: Item) {
+    const index = this.items.findIndex((item) => item.id === updatedItem.id);
+    if (index !== -1) {
+      this.items[index] = updatedItem;
     }
+    this.cancelEdit();
   }
 }

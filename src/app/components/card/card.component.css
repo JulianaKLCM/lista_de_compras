@@ -1,34 +1,13 @@
 :host {
-  width: 100%;
-}
-
-.lista {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1rem;
   width: 100%;
+  gap: 0.7rem;
 }
 
-#lista-titulo {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 1rem 2rem;
-}
-
-#lista-titulo>button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#lista-titulo>button:hover {
-  background-color: #005cbf;
+h3 {
+  margin: 1rem 0;
+  color: #555;
 }
 
 .card {
@@ -42,18 +21,6 @@
   width: 100%;
   border-left: 10px solid #ccc;
   cursor: pointer;
-}
-
-.border-comprado {
-  border-left: 10px solid #4caf50;
-}
-
-.border-pendente {
-  border-left: 10px solid #ffeb3b;
-}
-
-.border-default {
-  border-left: 10px solid #007bff;
 }
 
 .card:hover {
@@ -79,15 +46,15 @@
   gap: 0.3rem;
 }
 
-#card-content>h4 {
+#card-content > h4 {
   font-size: 1rem;
 }
 
-#card-content>p {
+#card-content > p {
   font-size: 0.8rem;
 }
 
-#card-content>p>span {
+#card-content > p > span {
   font-size: 0.8rem;
   font-weight: bold;
 }
@@ -98,20 +65,4 @@
 
 .pendente {
   background-color: rgb(255, 249, 196);
-}
-
-.status-titulo {
-  font-size: 1.2rem;
-  margin: 1rem 0;
-  color: #333;
-  text-align: left;
-  width: 100%;
-  padding-left: 2rem;
-}
-
-.separador {
-  width: 100%;
-  height: 1px;
-  background-color: #ccc;
-  margin: 1rem 0;
 }

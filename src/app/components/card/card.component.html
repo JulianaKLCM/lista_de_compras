@@ -1,0 +1,40 @@
+<h3 class="status-titulo">{{ titulo }}</h3>
+
+<ng-container *ngFor="let item of items">
+  <div
+    class="card"
+    *ngIf="item.status === statusFiltro"
+    (click)="onToggleStatus(item)"
+    [ngClass]="{
+      'comprado': item.status === 'comprado',
+      'pendente': item.status === 'pendente',
+      'border-comprado': item.status === 'comprado',
+      'border-pendente': item.status === 'pendente',
+      'border-default': item.status !== 'comprado' && item.status !== 'pendente'
+    }"
+  >
+    <div id="card-content">
+      <h4>{{ item.descricao }}</h4>
+
+      <p>
+        <span>Qtde:</span>
+        {{ item.quantidade }}
+      </p>
+
+      <p *ngIf="item.obs">
+        <span>Obs:</span>
+        {{ item.obs }}
+      </p>
+    </div>
+
+    <div>
+      <button class="botoes" id="edit-item" (click)="onEdit(item, $event)">
+        <fa-icon [icon]="faPencilAlt"></fa-icon>
+      </button>
+
+      <button class="botoes" id="delete-item" (click)="onDelete(item, $event)">
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
+    </div>
+  </div>
+</ng-container>
