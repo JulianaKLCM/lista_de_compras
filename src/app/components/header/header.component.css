@@ -38,3 +38,13 @@ header>nav>a {
 header>nav>a:hover {
   color: white;
 }
+
+@media (max-width: 405px) {
+  :host {
+    overflow: hidden;
+  }
+
+  #lista-compras {
+    display: none;
+  }
+}
