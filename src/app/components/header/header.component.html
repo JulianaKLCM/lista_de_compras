@@ -5,8 +5,14 @@
     </a>
   </div>
 
-  <nav>
+  <nav *ngIf="isUserLoggedIn">
     <a routerLink="" id="lista-compras">Lista de Compras</a>
-    <a routerLink="sobre">Sobre</a>
+    <a routerLink="sobre" id="sobre">Sobre</a> <span id="separador">|</span>
+
+    <span id="user-info">
+      Usuário(a): {{ userName }}
+    </span>
+
+    <button id="sign-out" (click)="signOut()">Sair</button>
   </nav>
 </header>

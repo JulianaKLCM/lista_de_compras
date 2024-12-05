@@ -1,28 +1,35 @@
-<div *ngIf="showForm && !isEditing">
-  <app-form-inclusao (closeForm)="toggleForm()" (addItem)="onAddItem($event)">
-  </app-form-inclusao>
-</div>
+<div class="page">
+  <app-header></app-header>
 
-<div *ngIf="isEditing && currentItem">
-  <app-form-edicao [item]="currentItem" (closeForm)="cancelEdit()" (updateItem)="onUpdateItem($event)">
-  </app-form-edicao>
-</div>
+  <div class="container">
+    <div *ngIf="showForm && !isEditing">
+      <app-form-inclusao (closeForm)="toggleForm()" (addItem)="onAddItem($event)">
+      </app-form-inclusao>
+    </div>
 
-<div *ngIf="!showForm" class="lista">
-  <div id="lista-titulo">
-    <h2>Lista de Compras</h2>
-    <button id="add-item" (click)="toggleForm()">
-      <fa-icon [icon]="faPlus"></fa-icon>
-      Adicionar
-    </button>
+    <div *ngIf="isEditing && currentItem">
+      <app-form-edicao [item]="currentItem" (closeForm)="cancelEdit()" (updateItem)="onUpdateItem($event)">
+      </app-form-edicao>
+    </div>
+
+    <div *ngIf="!showForm" class="lista">
+      <div id="lista-titulo">
+        <h2>Lista de Compras</h2>
+        <button id="add-item" (click)="toggleForm()">
+          <fa-icon [icon]="faPlus"></fa-icon>
+          Adicionar
+        </button>
+      </div>
+
+      <app-card [items]="items" statusFiltro="comprado" titulo="Comprados" (toggleStatus)="toggleItemStatus($event)"
+        (delete)="deleteItem($event)" (edit)="editItem($event)"></app-card>
+
+      <hr class="separador">
+
+      <app-card [items]="items" statusFiltro="pendente" titulo="Não comprados" (toggleStatus)="toggleItemStatus($event)"
+        (delete)="deleteItem($event)" (edit)="editItem($event)"></app-card>
+    </div>
   </div>
 
-  <app-card [items]="items" statusFiltro="comprado" titulo="Comprados" (toggleStatus)="toggleItemStatus($event)"
-    (delete)="deleteItem($event)" (edit)="editItem($event)"></app-card>
-
-  <hr class="separador">
-
-  <app-card [items]="items" statusFiltro="pendente" titulo="Não comprados" (toggleStatus)="toggleItemStatus($event)"
-    (delete)="deleteItem($event)" (edit)="editItem($event)"></app-card>
-
+    <app-footer></app-footer>
 </div>

@@ -10,6 +10,8 @@ import {
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { CardComponent } from '../components/card/card.component';
+import { HeaderComponent } from '../components/header/header.component';
+import { FooterComponent } from '../components/footer/footer.component';
 
 @Component({
   selector: 'app-lista-de-compras',
@@ -20,6 +22,8 @@ import { CardComponent } from '../components/card/card.component';
     FormEdicaoComponent,
     FontAwesomeModule,
     CardComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   templateUrl: './lista-de-compras.component.html',
   styleUrls: ['./lista-de-compras.component.css'],
